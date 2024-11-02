@@ -21,7 +21,16 @@ namespace DotNetCoreSqlDb.Controllers
         // GET: Todos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Todo.ToListAsync());
+            // return View(await _context.Todo.ToListAsync());
+            try
+                {
+                    return View(await _context.Todo.ToListAsync());
+                }
+            catch (Exception ex)
+                {
+    
+                return View("Error"); 
+                }
         }
 
         // GET: Todos/Details/5
